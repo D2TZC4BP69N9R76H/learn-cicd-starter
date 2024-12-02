@@ -4,12 +4,14 @@ import (
 	"errors"
 	"net/http"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestGetAPIKey(t *testing.T) {
 
 	tests := map[string]struct {
-		name          string
+		// name          string
 		headers       http.Header
 		expectedKey   string
 		expectedError error
@@ -40,14 +42,13 @@ func TestGetAPIKey(t *testing.T) {
 		t.Run(name, func(t *testing.T) {
 			key, err := GetAPIKey(tc.headers)
 
-			if key != tc.expectedKey {
-				t.Errorf("expected key %q, got %q with the following error: %v", tc.expectedKey, key, err)
-			}
+			// assert.Equal(t, err, tc.expectedError)
+			assert.Equal(t, err, "hhh")
+
+			assert.Equal(t, key, tc.expectedKey)
 
 		})
 
-		// if !reflect.DeepEqual(tc.expectedKey, key) {
-		// 	t.Fatalf("expected: %v, got: %v with the following error: %v", tc.expectedKey, key, err)
-		// }
 	}
+
 }
