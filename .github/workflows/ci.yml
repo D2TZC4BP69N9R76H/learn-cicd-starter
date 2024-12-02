@@ -1,0 +1,22 @@
+name: ci
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest # Type of Github Hosted runner used
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4 # clones the repository into the runner
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with: # These are the inputs to the action
+          go-version: "1.23.0"
+
+      - name: Run Tests
+        run: go test ./... -cover
