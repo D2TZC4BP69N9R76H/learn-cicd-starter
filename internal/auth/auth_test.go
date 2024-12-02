@@ -42,8 +42,7 @@ func TestGetAPIKey(t *testing.T) {
 		t.Run(name, func(t *testing.T) {
 			key, err := GetAPIKey(tc.headers)
 
-			// assert.Equal(t, err, tc.expectedError)
-			assert.Equal(t, err, "hhh")
+			assert.Equal(t, err, tc.expectedError)
 
 			assert.Equal(t, key, tc.expectedKey)
 
