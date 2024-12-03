@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    name: Deployment
+    name: Deploy
     runs-on: ubuntu-latest # Type of Github Hosted runner used
 
     steps:
